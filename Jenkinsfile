@@ -16,8 +16,8 @@ pipeline {
     stages {
         stage('Pull Script') {
             when {
-                branch {
-                    not 'PR-'
+                not {
+                    branch 'PR-*'
                 }
             }
             steps {
@@ -30,8 +30,8 @@ pipeline {
 
         stage('Obtain Cert') {
             when {
-                branch {
-                    not 'PR-'
+                not {
+                    branch 'PR-*'
                 }
             }
             steps {
