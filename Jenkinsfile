@@ -8,6 +8,7 @@ pipeline {
         USERNAME = 'haomingyin'
         SLD = 'haomingyin'
         TLD = 'com'
+        APPLY_DOMAIN = '*.haomingyin.com'
         SCRIPTS_REPO = 'https://github.com/haomingyin/certbot-namecheap-hook.git'
     }
     triggers {
@@ -37,7 +38,7 @@ pipeline {
             steps {
                 script {
                     dir('scripts') {
-                        sh "./main.sh"
+                        sh "PATH=$PATH:/usr/local/bin ./main.sh"
                     }
                 }
             }
