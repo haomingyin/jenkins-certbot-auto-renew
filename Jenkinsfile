@@ -96,6 +96,7 @@ pipeline {
                         -d ${env.APPLY_DOMAIN} \
                         -m ${env.EMAIL} \
                         --server ${env.ACME_SERVER} \
+                        --agree-tos \
                         --manual-public-ip-logging-ok \
                         --force-renewal \
                         --break-my-certs"
@@ -133,6 +134,7 @@ pipeline {
                         -d ${env.APPLY_DOMAIN} \
                         -m ${env.EMAIL} \
                         --server ${env.ACME_SERVER} \
+                        --agree-tos \
                         --manual-public-ip-logging-ok \
                         --force-renewal"
                     }
