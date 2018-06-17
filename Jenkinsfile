@@ -96,8 +96,7 @@ pipeline {
                         --server ${env.ACME_SERVER} \
                         --manual-public-ip-logging-ok \
                         --force-renewal \
-                        --break-my-certs
-                        "
+                        --break-my-certs"
                     }
                 }
             }
@@ -132,14 +131,13 @@ pipeline {
                         -d ${env.APPLY_DOMAIN} \
                         --server ${env.ACME_SERVER} \
                         --manual-public-ip-logging-ok \
-                        --force-renewal
-                        "
+                        --force-renewal"
                     }
                 }
             }
         }
     }
-    
+
     post {
         always {
             cleanWs()
