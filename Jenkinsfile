@@ -6,9 +6,9 @@ pipeline {
         label 'master'
     }
     environment {
-        API_USER = 'haomingyin'
+        API_USER = credentials('namecheap-username')
         API_KEY = credentials('namecheap-api-key')
-        USERNAME = 'haomingyin'
+        USERNAME = credentials('namecheap-username')
         SLD = 'haomingyin'
         TLD = 'com'
         APPLY_DOMAIN = '*.haomingyin.com'
