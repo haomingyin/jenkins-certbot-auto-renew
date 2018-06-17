@@ -13,6 +13,7 @@ pipeline {
         TLD = 'com'
         APPLY_DOMAIN = '*.haomingyin.com'
         SCRIPTS_REPO = 'https://github.com/haomingyin/certbot-namecheap-hook.git'
+        EMAIL = cerdentials('admin-email')
     }
     triggers {
         cron('H H * * H')
@@ -93,6 +94,7 @@ pipeline {
                         --manual-auth-hook ./authenticator.sh \
                         --manual-cleanup-hook ./cleanup.sh \
                         -d ${env.APPLY_DOMAIN} \
+                        -m ${env.EMAIL} \
                         --server ${env.ACME_SERVER} \
                         --manual-public-ip-logging-ok \
                         --force-renewal \
@@ -129,6 +131,7 @@ pipeline {
                         --manual-auth-hook ./authenticator.sh \
                         --manual-cleanup-hook ./cleanup.sh \
                         -d ${env.APPLY_DOMAIN} \
+                        -m ${env.EMAIL} \
                         --server ${env.ACME_SERVER} \
                         --manual-public-ip-logging-ok \
                         --force-renewal"
