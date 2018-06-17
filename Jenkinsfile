@@ -59,7 +59,7 @@ pipeline {
                     dir('scripts') {
                         sh "./utility.sh get_client_ip > .ip.tmp"
                         clientIP = readFile(".ip.tmp")
-                        sh "Client IP is: ${clientIP}"
+                        echo "Client IP is: ${clientIP}"
                     }
                 }
             }
