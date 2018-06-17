@@ -1,4 +1,4 @@
-# jenkins-certbot
+# jenkins-certbot-auto-renew
 
 This repository contains a Jenkinsfile which instructs Jenkins to periodically run [scripts](https://github.com/haomingyin/certbot-namecheap-hook) to renew SSL certs.
 
