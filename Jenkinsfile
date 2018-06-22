@@ -39,11 +39,16 @@ pipeline {
             } 
             steps {
                 script {
-                    timeout(time: 5, unit: 'MINUTES') {
-                        acmeMode = input message: "Which environment do you want to apply", ok: 'Proceed',
-                            parameters: [
-                                choice(name: 'acmeMode', choices: 'prod\nstaging', description: 'Production mode or staging mode')
-                            ]
+                    try {
+                        timeout(time: 5, unit: 'MINUTES') {
+                            acmeMode = input message: "Which environment do you want to apply", ok: 'Proceed',
+                                parameters: [
+                                    choice(name: 'acmeMode', choices: 'prod\nstaging', description: 'Production mode or staging mode')
+                                ]
+                        }
+                        echo "Input received. Running for '${acmeMode}' mode"
+                    } catch (err) {
+                        echo "Timeout reached. Running for the default mode: '${acmeMode}'"
                     }
                 }
             }
