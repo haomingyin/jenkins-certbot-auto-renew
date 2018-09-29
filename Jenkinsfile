@@ -3,7 +3,7 @@ def acmeMode = "prod"
 
 pipeline {
     agent {
-        label 'master'
+        label 'pi'
     }
     environment {
         API_USER = credentials('namecheap-username')
@@ -130,9 +130,9 @@ pipeline {
                     dir('scripts') {
                         sh "PATH=$PATH:/usr/local/bin certbot certonly \
                         --manual \
-                        --logs-dir /usr/local/var/log/letsencrypt \
-                        --work-dir /usr/local/var/letsencrypt \
-                        --config-dir /usr/local/etc/letsencrypt \
+                        --logs-dir /var/log/letsencrypt \
+                        --work-dir /var/letsencrypt \
+                        --config-dir /etc/letsencrypt \
                         --preferred-challenges=dns \
                         --manual-auth-hook ./authenticator.sh \
                         --manual-cleanup-hook ./cleanup.sh \
